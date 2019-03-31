@@ -1,21 +1,21 @@
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class Reader {
+import static com.sun.org.apache.xalan.internal.lib.ExsltStrings.split;
 
-    String fileContent;
+public class Reader
 
+    {
 
+    String scroll_info;
 
-    public static void init_interpret(){
+    public Reader()
 
-    }
-
-    public static void startInterpretter() {
-
-        Variable var = new Variable();
-
-
+    {
+        this.scroll_info = scroll_info;
         String fileName = "src\\scroll.glifx";
 
         try {
@@ -30,30 +30,22 @@ public class Reader {
             // may be less than the buffer size, but
             // it will never be more).
             int total = 0;
+            int ne = 0;
             int nRead = 0;
             while ((nRead = inputStream.read(buffer)) != -1) {
 
                 String fileContent = new String(buffer);
-                int enumerate = 0;
+                scroll_info = fileContent;
+                //System.out.print(fileContent+"op");
+                int count = 0;
 
-                String[] lineArray = new String[enumerate];
-                System.out.println(fileContent);
-
-                if(fileContent.contains("=")){
-                   String[] n = fileContent.split("=");
-                   String varName = n[0];
-                   String varVal = n[1];
-
-
-                   //Jobeject jobj = new Jobeject();
-                 //  jobj.getData(varName +" = "+varVal );
-                }
                 total += nRead;
+
             }
 
             inputStream.close();
 
-          //  System.out.println("Read " + total + " bytes");
+
         } catch (FileNotFoundException ex) {
             System.out.println(
                     "Unable to open file '" +
@@ -64,8 +56,6 @@ public class Reader {
                             + fileName + "'");
 
         }
-
-
 
 
     }

@@ -1,12 +1,24 @@
 public class Num
-    {
-        public int numInit(String name,int val)
+
+{
+    String name;
+    int val;
+    Boolean operation;
+
+        public Num (String name,Integer val, Boolean operation)
         {
-            System.out.println("this is an int");
+
+            name = " ";
+            val = 0;
+            operation = false;
+            //System.out.print(val);
 
 
+        }
 
-            return 122;
+        private Integer operation(Integer first_dig, Integer second_dig)
+        {
+return 5;
         }
 
     }
