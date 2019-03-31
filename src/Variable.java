@@ -19,24 +19,29 @@ public class Variable {
         this.num = num;
         this.string = string;
         this.bool = bool;
+        findType(this.value);
 
     }
 
 
     private String findType(String value) {
-        int[] intSet = new int[9];
 
-        for (int i = 1; i < 10; i++) {
+           if (this.name.contains("#")&& (! this.value.contains("\\+")))
+           {
+               int numAmt = Integer.parseInt(this.value);
+               //System.out.println("mi,,");
+           }
 
-            intSet[i - 1] = i;
-            if (this.name.contains("#")) {
-                int numAmt = Integer.parseInt(this.value);
-                if (numAmt == i) {
-                    this.num = true;
-
+                else if(this.name.contains("#") && (this.value.contains("\\+"))){
+                    String first_digit = value.split("\\+")[0];
+                    String sec_digit = value.split("\\+")[1];
+                    int first_dig_converted = Integer.parseInt(first_digit);
+                    int sec_dig_converted = Integer.parseInt(sec_digit);
+                    Integer an = operate(first_dig_converted,sec_dig_converted);
+                    System.out.println(an+"P");
                 }
-            }
-            else if (this.name.contains("$")) {
+
+            if (this.name.contains("$")) {
                 this.string = true;
             }
             //  System.out.println(java.util.Arrays.toString(intSet));
@@ -44,8 +49,14 @@ public class Variable {
 
             // if(value == )
 
+        return "OK";
         }
-        return "Ok";
 
+
+
+    public Integer operate(Integer first_dig, Integer second_dig)
+    {
+        Integer answer = first_dig + second_dig;
+        return answer;
     }
 }

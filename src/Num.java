@@ -8,17 +8,12 @@ public class Num
         public Num (String name,Integer val, Boolean operation)
         {
 
-            name = " ";
-            val = 0;
+            this.name=name;
+            this.val=val;
             operation = false;
             //System.out.print(val);
-
-
         }
 
-        private Integer operation(Integer first_dig, Integer second_dig)
-        {
-return 5;
-        }
+
 
     }
