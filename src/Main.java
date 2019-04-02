@@ -11,6 +11,7 @@ public class Main {
 
         //split each line based on ; statement end
         String[] lines =  aLine.split(";");
+        Map varDict = new HashMap();
 
         // this finds out if a variable is being declared based on an equal sign
         for(int x = 0; x< lines.length; x++) {
@@ -23,14 +24,13 @@ public class Main {
                 if (varName.contains("#") && ! varVal.contains("+"))
                 {
                     Variable intVar = new Variable(varName, varVal, false, true, false);
-                    Map varDict = new HashMap();
                     varDict.put(intVar.name,intVar.value);
                     //System.out.print(newNum.val);
                    // if(intVar.value.contains("+")){
                     int newInteger =Integer.parseInt(intVar.value);
                     Num newNum = new Num(intVar.name, newInteger,false);
                     newNum.val = newInteger;
-                    System.out.println(newNum.val);
+                    System.out.println(varDict.get(newNum.name));
 
                 }
 
@@ -43,7 +43,10 @@ public class Main {
                     int conv_sec_dig =Integer.parseInt(sec_digit);
                     Integer newInteger = conv_first_dig + conv_sec_dig;
                     Num newNum = new Num(varName, newInteger,false);
-                    System.out.println(newNum.name+" = " +newNum.val);
+                    varDict.put(newNum.name,newNum.val);
+                    System.out.println(varDict.get(newNum.name));
+
+                    //     System.out.println(newNum.name+" = " +newNum.val);
 
 
 
@@ -54,6 +57,8 @@ public class Main {
 
                 {
                     Variable stringVar = new Variable(varName, varVal, true, false, false);
+                    varDict.put("hello","for");
+                    System.out.println(varDict.get("hello"));
                 }
 
                 else{
